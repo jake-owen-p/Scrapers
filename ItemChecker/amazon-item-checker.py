@@ -18,7 +18,7 @@ def initAndLogin(browser):
 def check_for_item(browser, itemFound):
     try:
         browser.get(sys.argv[4])
-        browser.find_element_by_id("backInStock_feature_div")
+        browser.find_element_by_id("backInStock")
     except NoSuchElementException as e:
         notify_user_item_found()
     except Exception as e:
