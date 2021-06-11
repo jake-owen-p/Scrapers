@@ -27,4 +27,4 @@
 ### Item Checker
 `python3 ItemChecker/amazon-item-checker.py <ChromeDriver-FilePath> <Username> <Password> <Item-Url>`
 #### Example
-`python3 ItemChecker/amazon-item-checker.py /Applications/chromedriver myself@email.com mySecurePassword https://www.amazon.co.uk/Xbox-RRT-00007-Series-X/dp/B08H93GKNJ`
+`python3 ItemChecker/amazon-item-checker.py /Applications/chromedriver myself@email.com mySecurePassword https://www.amazon.co.uk/PlayStation-9395003-5-Console/dp/B08H95Y452/`

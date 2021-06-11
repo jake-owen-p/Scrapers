@@ -6,6 +6,7 @@ import sys
 from selenium.common.exceptions import NoSuchElementException
 
 def initAndLogin(browser):
+    print("Logging in...")
     browser.get('https://www.amazon.co.uk/')
     time.sleep(1)
     browser.find_element_by_id("nav-link-accountList").click()
@@ -14,11 +15,13 @@ def initAndLogin(browser):
     time.sleep(1)
     browser.find_element_by_name("password").send_keys(sys.argv[3])
     browser.find_element_by_id("signInSubmit").click()
+    print("Logging in successfully")
 
 def check_for_item(browser, itemFound):
     try:
+        print("Checking item")
         browser.get(sys.argv[4])
-        browser.find_element_by_id("backInStock")
+        browser.find_element_by_id("outOftock")
     except NoSuchElementException as e:
         notify_user_item_found()
     except Exception as e:
@@ -29,6 +32,7 @@ def check_for_item(browser, itemFound):
         find_item()
 
 def notify_user_item_found():
+    print("ITEM FOUND! PURCHASE IT!")
     x=10
     while(x >0):
         time.sleep(generate_random_interval("Notification"))
@@ -44,11 +48,13 @@ def generate_random_interval(type):
         return random.randint(10,20)
 
 def find_item():
+    print("Looking for item " + sys.argv[4])
     itemFound = False 
     browser = webdriver.Chrome(sys.argv[1])
 
     initAndLogin(browser)
     while(not itemFound):
+        print("Refreshing...")
         time.sleep(generate_random_interval("Browsing"))
         check_for_item(browser, itemFound)
 
